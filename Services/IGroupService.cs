@@ -5,8 +5,10 @@ using PickTheDate.Models;
 
 namespace PickTheDate.Services
 {
-    public interface IGroupItemService
+    public interface IGroupService
     {
-        Task<GroupItem[]> GetGroupItemsAsync();
+        Task<Group[]> GetGroupsAsync();
+
+        Task<bool> AddGroupAsync(Group newGroup);
     }
 }

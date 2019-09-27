@@ -2,6 +2,6 @@ namespace PickTheDate.Models
 {
     public class GroupViewModel
     {
-        public GroupItem[] Groups { get; set; }
+        public Group[] Groups { get; set; }
     }
 }

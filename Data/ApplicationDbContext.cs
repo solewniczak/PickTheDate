@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using PickTheDate.Models;
 
 namespace PickTheDate.Data
 {
@@ -12,5 +13,10 @@ namespace PickTheDate.Data
             : base(options)
         {
         }
+        
+        public DbSet<Group> Groups { get; set; }
+        
+        public DbSet <Record> Records { get; set; }
+        
     }
 }

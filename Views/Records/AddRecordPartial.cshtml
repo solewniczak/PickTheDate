@@ -1,0 +1,11 @@
+@model Record
+
+<form asp-action="AddRecord" method="post">
+    <label asp-for="Date">Date:</label>
+    <input asp-for="Date" type="date"/>
+    <label asp-for="StartTime">Start Time:</label>
+    <input asp-for="StartTime" type="time"/>
+    <label asp-for="StartTime">Finish Time:</label>
+    <input asp-for="FinishTime" type="time"/>
+    <button type="submit">Add</button>
+</form>

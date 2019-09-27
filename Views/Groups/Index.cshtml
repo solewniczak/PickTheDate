@@ -11,17 +11,19 @@
         <tr>
             <td>Id</td>
             <td>Name</td>
+            <td>Leader</td>
         </tr>
         </thead>
-        @foreach (var item in Model.Groups)
+        @foreach (var group in Model.Groups)
         {
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
+                <td>@group.Id</td>
+                <td>@group.Name</td>
+                <td>@group.Leader</td>
             </tr>
         }
     </table>
     <div class="panel-footer add-item-form">
-        <!-- TODO: Add item form -->
+       @await Html.PartialAsync("AddGroupPartial", new Group())
     </div>
 </div>

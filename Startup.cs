@@ -35,7 +35,8 @@ namespace PickTheDate
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
            services.AddRazorPages();
-           services.AddSingleton<IGroupItemService, FakeGroupItemService>();
+           services.AddScoped<IGroupService, GroupService>();
+           services.AddScoped<IRecordService, RecordService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,11 @@
+@model Group
+
+<form asp-action="AddGroup" method="post">
+    <label asp-for="Id">Add new group:</label>
+    <input asp-for="Id" />
+    <label asp-for="Name">Name:</label>
+    <input asp-for="Name" />
+    <label asp-for="Leader">Leader:</label>
+    <input asp-for="Leader" />
+    <button type="submit">Add</button>
+</form>

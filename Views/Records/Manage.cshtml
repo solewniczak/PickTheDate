@@ -1,0 +1,29 @@
+@model RecordViewModel
+
+@{
+    ViewData["Title"] = "Manage Records";
+}
+
+<div class="panel panel-default todo-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <td>Date</td>
+            <td>Start Time</td>
+            <td>Finish Time</td>
+        </tr>
+        </thead>
+        @foreach (var record in Model.Records)
+        {
+            <tr>
+                <td>@record.Date</td>
+                <td>@record.StartTime</td>
+                <td>@record.FinishTime</td>
+            </tr>
+        }
+    </table>
+    <div class="panel-footer add-item-form">
+        @await Html.PartialAsync("AddRecordPartial", new Record())
+    </div>
+</div>

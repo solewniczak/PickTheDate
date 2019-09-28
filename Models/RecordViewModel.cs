@@ -1,7 +1,9 @@
+using System.Linq;
+
 namespace PickTheDate.Models
 {
     public class RecordViewModel
     {
-        public Record[] Records { get; set; }
+        public IOrderedEnumerable<Record> Records { get; set; }
     }
 }

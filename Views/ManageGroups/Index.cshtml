@@ -1,5 +1,4 @@
 @model GroupViewModel
-
 @{
     ViewData["Title"] = "Manage group list";
 }
@@ -19,7 +18,7 @@
             <tr>
                 <td>@group.Id</td>
                 <td>@group.Name</td>
-                <td>@group.Leader</td>
+                <td>@group.User.Email</td>
             </tr>
         }
     </table>

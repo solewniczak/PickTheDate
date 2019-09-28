@@ -1,4 +1,7 @@
+@using PickTheDate.Services
 @model Group
+@inject UserService UserService
+
 
 <form asp-action="AddGroup" method="post">
     <label asp-for="Id">Add new group:</label>
@@ -6,6 +9,8 @@
     <label asp-for="Name">Name:</label>
     <input asp-for="Name" />
     <label asp-for="Leader">Leader:</label>
-    <input asp-for="Leader" />
+    <select asp-for="Leader" asp-items="@await UserService.SelectList()">
+        <option value="">Choose the Leader</option>
+    </select>
     <button type="submit">Add</button>
 </form>

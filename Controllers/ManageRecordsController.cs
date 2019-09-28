@@ -10,35 +10,16 @@ using PickTheDate.Services;
 
 namespace PickTheDate.Controllers
 {
-    [Authorize]
-    public class RecordsController : Controller
+    [Authorize(Roles = "Administrator")]
+    public class ManageRecordsController : Controller
     {
         private readonly IRecordService _recordService;
-        private readonly UserManager<IdentityUser> _userManager;
-        
-        public RecordsController(IRecordService recordService,
-            UserManager<IdentityUser> userManager)
+
+        public ManageRecordsController(IRecordService recordService)
         {
             _recordService = recordService;
-            _userManager = userManager;
         }
-        
         public async Task<IActionResult> Index()
-        {
-            var currentUser = await _userManager.GetUserAsync(User);
-            if (currentUser == null) return Challenge();
-            
-            var records = await _recordService.GetRecordsAsync();
-            
-            var model = new RecordViewModel()
-            {
-                Records = records
-            };
-
-            return View(model);
-        }
-        
-        public async Task<IActionResult> Manage()
         {
             var records = await _recordService.GetRecordsAsync();
 
@@ -53,15 +34,15 @@ namespace PickTheDate.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddRecord(Record newRecord)
         {
-            if (!ModelState.IsValid) return RedirectToAction("Manage");
+            if (!ModelState.IsValid) return RedirectToAction("Index");
 
             var successful = await _recordService.AddRecordAsync(newRecord);
             if (!successful)
             {
-                return BadRequest("Could not add group.");
+                return BadRequest("Could not add record.");
             }
 
-            return RedirectToAction("Manage");
+            return RedirectToAction("Index");
         }
     }
 }

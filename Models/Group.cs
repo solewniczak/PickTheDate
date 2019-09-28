@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PickTheDate.Models
 {
@@ -12,5 +13,8 @@ namespace PickTheDate.Models
         
         [Required]
         public string Leader { get; set; }
+        
+        [ForeignKey("Leader")]
+        public ApplicationUser User { get; set; }
     }
 }

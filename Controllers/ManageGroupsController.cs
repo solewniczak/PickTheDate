@@ -9,12 +9,12 @@ using PickTheDate.Services;
 
 namespace PickTheDate.Controllers
 {
-    [Authorize]
-    public class GroupsController : Controller
+    [Authorize(Roles = "Administrator")]
+    public class ManageGroupsController : Controller
     {
         private readonly IGroupService _groupService;
         
-        public GroupsController(IGroupService groupService)
+        public ManageGroupsController(IGroupService groupService)
         {
             _groupService = groupService;
         }

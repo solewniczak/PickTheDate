@@ -10,5 +10,7 @@ namespace PickTheDate.Services
         Task<Group[]> GetGroupsAsync();
 
         Task<bool> AddGroupAsync(Group newGroup);
+        
+        Task<Group> GetUserGroupAsync(ApplicationUser user);
     }
 }

@@ -33,14 +33,13 @@ namespace PickTheDate
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
            services.AddRazorPages();
 
-           services.AddIdentity<ApplicationUser, IdentityRole>()
-               .AddEntityFrameworkStores<ApplicationDbContext>()
-               .AddDefaultUI()
-               .AddDefaultTokenProviders();
+//           services.AddIdentity<ApplicationUser, IdentityRole>();
            
            services.AddScoped<IGroupService, GroupService>();
            services.AddScoped<IRecordService, RecordService>();

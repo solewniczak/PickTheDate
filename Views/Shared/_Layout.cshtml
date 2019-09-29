@@ -28,13 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="PickTheDate" asp-action="Index">Pick the Date</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ManageRecords" asp-action="Index">Manage Records</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ManageGroups" asp-action="Index">Magane Groups</a>
-                        </li>
+                        <partial name="_AdminActionsPartial" />
                     </ul>
+                    
                 </div>
             </div>
         </nav>
